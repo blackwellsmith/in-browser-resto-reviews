@@ -1,3 +1,16 @@
 <h1>Time for your 🌐class review!</h1>
 <br>
-<form method=></form>
+<form method="POST" action="/reviews">
+  <label for "name">Name of Resto: </label>
+  <input type="text" id="name" name="name">
+  <br>
+  <br>
+  <p>
+    <label>Your Review:</label>
+    <br>
+      <textarea id="content" name="content"
+                 rows = "3"
+                 cols = "80">The food was...</textarea>
+  </p>
+  <input type="submit" value="submit">
+</form>

@@ -1,0 +1,5 @@
+<h1>Checkout all our reviews here!</h1>
+<% @reviews.each do |r| %>
+  <% r_link = "/reviews/#{r.id}" %>
+ <p><a href="<%= r_link %>"><%= r.name %></a></p>
+ <% end %>
