@@ -1,3 +1,4 @@
+require 'pry'
 class ReviewsController < ApplicationController
   
   get '/index' do
@@ -15,7 +16,11 @@ class ReviewsController < ApplicationController
   end
   
   post '/reviews' do
+     @user = User.find_by(session[:id])
      @review = Review.create(params)
+     @review.users_id = @user.id
+     binding.pry
+     @review.save
      redirect to "/reviews/#{@review.id}"
    end
    
@@ -29,11 +34,13 @@ class ReviewsController < ApplicationController
      erb :'/reviews/edit'
    end
    
-    patch '/reviews/:id' do
-     @review = Review.find(params[:id])
+    post '/reviews/:id' do
+     @review = Review.find_by_id(params[:id])
+    # binding.pry
      @review.name = params[:name]
      @review.content = params[:content]
      @review.save
+     #binding.pry
      redirect to "/reviews/#{@review.id}"
      
    end
