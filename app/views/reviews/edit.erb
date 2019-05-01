@@ -10,11 +10,11 @@
                  rows = "3"
                  cols = "80"><%=@review.content%></textarea>
   </p>
-  <input type="submit" value="Edit Your review">
+  <input type="submit" value="submit your edit">
 </form>
 <br>
 
-<form action="/reviews/<%=@review.id%>" method="post">
+<form action="/reviews/<%=@review.id%>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <h3>If you delete you can always rewrite it later.</h3>
   <input type="submit" value="delete">

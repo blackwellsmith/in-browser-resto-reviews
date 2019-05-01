@@ -39,7 +39,7 @@ class ReviewsController < ApplicationController
      end
    end
    
-    post '/reviews/:id' do
+    patch '/reviews/:id' do
      @review = Review.find_by_id(params[:id])
     # binding.pry
      @review.name = params[:name]
@@ -52,6 +52,7 @@ class ReviewsController < ApplicationController
    
     delete '/reviews/:id' do
       @review = Review.find(params[:id])
+      #binding.pry
       @review.delete
       redirect to '/reviews'
 
