@@ -30,8 +30,13 @@ class ReviewsController < ApplicationController
    end
    
     get '/reviews/:id/edit' do 
+     @user = User.find_by(session[:id])
      @review = Review.find(params[:id])
-     erb :'/reviews/edit'
+     if @user.id == @review.users_id
+       erb :'/reviews/edit'
+     else
+       erb :'/reviews/home'
+     end
    end
    
     post '/reviews/:id' do
