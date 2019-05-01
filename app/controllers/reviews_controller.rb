@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
      @user = User.find_by(session[:id])
      @review = Review.create(params)
      @review.users_id = @user.id
-     binding.pry
+    # binding.pry
      @review.save
      redirect to "/reviews/#{@review.id}"
    end
@@ -50,11 +50,10 @@ class ReviewsController < ApplicationController
      
    end
    
-    delete '/recipes/:id' do
-      recipe = Recipe.find(params[:id])
-      recipe.delete
-      #binding.pry
-      redirect to '/recipes'
+    delete '/reviews/:id' do
+      @review = Review.find(params[:id])
+      @review.delete
+      redirect to '/reviews'
 
   end
 end

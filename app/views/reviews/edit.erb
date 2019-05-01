@@ -1,16 +1,21 @@
 <form method='POST' action="/reviews/<%=@review.id%>">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label for "name">Edit Name:</label>
+  <br>
   <input type="text" id="name" name="name" value="<%=@review.name%>">
   <br>
   <label for "content">Edit Content:</label>
+  <br>
   <textarea id="content" name="content"
                  rows = "3"
                  cols = "80"><%=@review.content%></textarea>
   </p>
   <input type="submit" value="Edit Your review">
 </form>
-<form action="/reviews/<%= @reviews.id %>" method="post">
+<br>
+
+<form action="/reviews/<%=@review.id%>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
+  <h3>If you delete you can always rewrite it later.</h3>
   <input type="submit" value="delete">
 </form>
