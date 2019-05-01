@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
      if @user.id == @review.users_id
        erb :'/reviews/edit'
      else
-       erb :'/reviews/home'
+       erb :'/reviews/sorry'
      end
    end
    
