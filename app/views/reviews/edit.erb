@@ -9,6 +9,8 @@
                  cols = "80"><%=@review.content%></textarea>
   </p>
   <input type="submit" value="Edit Your review">
-  
 </form>
-  
+<form action="/reviews/<%= @reviews.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
