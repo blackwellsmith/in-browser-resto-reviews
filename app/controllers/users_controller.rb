@@ -15,7 +15,11 @@ class UsersController < ApplicationController
   end
   
   get '/login' do
+    if logged_in?
+      redirect to "/reviews"
+    else
     erb :'users/login'
+  end
   end 
   
   post '/login' do

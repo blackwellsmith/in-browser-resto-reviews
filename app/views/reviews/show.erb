@@ -5,7 +5,9 @@
   <input type="submit" value="Return to Homepage!">
 </form>
 <br>
+<% if current_user == @review.users_id%>
 <form action="/reviews/<%=@review.id%>/edit" method="get">
   <h3>Would you like to edit or delete this review?</h3>
   <input type="submit" value="Edit or delete review">
-</form>
+</form> 
+<% end %>
