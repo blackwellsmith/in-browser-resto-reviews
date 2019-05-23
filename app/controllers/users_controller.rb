@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   
   get '/login' do
     if logged_in?
+      #binding.pry
       redirect to "/reviews"
     else
     erb :'users/login'
