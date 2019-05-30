@@ -25,13 +25,13 @@ class ReviewsController < ApplicationController
    end
    
     get '/reviews/:id' do
-      @review = Review.find(params[:id])
+      find_review
      erb :'reviews/show'
    end
    
     get '/reviews/:id/edit' do 
      @user = User.find_by(session[:id])
-     @review = Review.find(params[:id])
+     find_review
      if @user.id == @review.users_id
        erb :'/reviews/edit'
      else
@@ -40,7 +40,7 @@ class ReviewsController < ApplicationController
    end
    
     patch '/reviews/:id' do
-     @review = Review.find_by_id(params[:id])
+     find_review
     # binding.pry
      @review.name = params[:name]
      @review.content = params[:content]
@@ -51,7 +51,7 @@ class ReviewsController < ApplicationController
    end
    
     delete '/reviews/:id' do
-      @review = Review.find(params[:id])
+      find_review
       #binding.pry
       @review.delete
       redirect to '/reviews'

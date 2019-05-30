@@ -25,6 +25,10 @@ class ApplicationController < Sinatra::Base
       
       User.find_by(session[:user_id])
     end
+    
+    def find_review
+      @review = Review.find(params[:id])
+    end
   end
   
    
